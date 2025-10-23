@@ -1,0 +1,45 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Посетитель" as Participant
+actor "Билетёр" as Organizer
+
+package "Система учета посетителей сессий" {
+  usecase "Регистрация в системе" as UC_Register
+  usecase "Просмотр сессий" as UC_ViewSessions
+  usecase "Регистрация на сессию" as UC_RegisterSession
+  usecase "Отмена регистрации" as UC_CancelRegistration
+  usecase "Редактирование личных данных" as UC_EditProfile
+  
+  usecase "Управление сессиями" as UC_ManageSessions
+  usecase "Просмотр посетителей" as UC_ViewVisitors
+  usecase "Подтверждение регистраций" as UC_ConfirmRegistration
+  usecase "Изменение статуса посетителя" as UC_ChangeStatus
+  usecase "Формирование списков" as UC_GenerateLists
+  usecase "Отправка уведомлений" as UC_SendNotifications
+}
+
+' Связи посетителя
+Visitor -> UC_Register
+Visitor -> UC_ViewSessions
+Visitor -> UC_RegisterSession
+Visitor -> UC_CancelRegistration
+Visitor -> UC_EditProfile
+
+' Связи билетёра
+Usher -> UC_ManageSessions
+Usher -> UC_ViewVisitors
+Usher -> UC_ConfirmRegistration
+Usher -> UC_ChangeStatus
+Usher -> UC_GenerateLists
+Usher -> UC_SendNotifications
+Usher -> UC_ViewSessions
+Usher -> UC_Register
+
+' Расширения и включения
+UC_ManageSession .> UC_ViewSessions : extends
+UC_RegisterSession .> UC_ViewSessions : includes
+UC_CancelRegistration .> UC_ViewSessions : includes
+
+@enduml
