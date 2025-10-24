@@ -5,7 +5,7 @@ skinparam packageStyle rectangle
 actor "Посетитель" as Participant
 actor "Билетёр" as Organizer
 
-package "Система учета посетителей сессий" {
+package "Система учёта продажи билетов в кинотеатр." {
   usecase "Регистрация в системе" as UC_Register
   usecase "Просмотр сессий" as UC_ViewSessions
   usecase "Регистрация на сессию" as UC_RegisterSession
