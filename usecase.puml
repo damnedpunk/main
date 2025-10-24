@@ -16,7 +16,7 @@ package "Система учёта продажи билетов в киноте
   usecase "Просмотр посетителей" as UC_ViewVisitors
   usecase "Подтверждение регистраций" as UC_ConfirmRegistration
   usecase "Изменение статуса посетителя" as UC_ChangeStatus
-  usecase "Формирование списков" as UC_GenerateLists
+  usecase "Составление списков" as UC_GenerateLists
   usecase "Отправка уведомлений" as UC_SendNotifications
 }
 
