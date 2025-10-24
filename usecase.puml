@@ -2,8 +2,8 @@
 left to right direction
 skinparam packageStyle rectangle
 
-actor "Посетитель" as Participant
-actor "Билетёр" as Organizer
+actor "Посетитель" as Visitor
+actor "Билетёр" as Usher
 
 package "Система учёта продажи билетов в кинотеатр." {
   usecase "Регистрация в системе" as UC_Register
@@ -36,10 +36,5 @@ Usher -> UC_GenerateLists
 Usher -> UC_SendNotifications
 Usher -> UC_ViewSessions
 Usher -> UC_Register
-
-' Расширения и включения
-UC_ManageSession .> UC_ViewSessions : extends
-UC_RegisterSession .> UC_ViewSessions : includes
-UC_CancelRegistration .> UC_ViewSessions : includes
 
 @enduml
